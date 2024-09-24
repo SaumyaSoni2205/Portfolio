@@ -246,13 +246,13 @@ function displaySkills(data) {
 
 document.addEventListener("DOMContentLoaded", async () => {
     try {
-        const educationData = await fetchData('../education.json');
+        const educationData = await fetchData('education.json');
         displayEducation(educationData);
 
-        const experienceData = await fetchData('../experience.json');
+        const experienceData = await fetchData('experience.json');
         displayExperience(experienceData);
 
-        const skillsData = await fetchData('../skills.json');
+        const skillsData = await fetchData('skills.json');
         displaySkills(skillsData);
     } catch (error) {
         console.error('There was a problem with the fetch operation:', error);
