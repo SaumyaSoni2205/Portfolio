@@ -165,9 +165,50 @@ async function fetchData(url) {
     return response.json();
 }
 
+function displayEducation(data) {
+    const educationList = document.getElementById('education-list');
+    data.education.forEach(item => {
+        const listItem = document.createElement('li');
+        listItem.className = 'timeline-item';
+        listItem.innerHTML = `
+            <h4 class="h4 timeline-item-title">${item.degree} at ${item.institution}</h4>
+            <span>${item.duration}${item.percentage ? ', ' + item.percentage : ''}</span>
+        `;
+        educationList.appendChild(listItem);
+    });
+}
+
+function displayExperience(data) {
+    const experienceList = document.getElementById('experience-list');
+    data.experience.forEach(item => {
+        const listItem = document.createElement('li');
+        listItem.className = 'timeline-item';
+        listItem.innerHTML = `
+            <h4 class="h4 timeline-item-title">${item.position} at ${item.company}</h4>
+            <span>${item.duration}, ${item.location}</span>
+            <p class="timeline-text">Responsibilities: ${item.responsibilities.join(', ')}</p>
+        `;
+        experienceList.appendChild(listItem);
+    });
+}
+
+function displaySkills(data) {
+    const skillsList = document.getElementById('skills-list');
+    data.skills.forEach(skill => {
+        const listItem = document.createElement('li');
+        listItem.className = 'skills-item';
+        listItem.innerHTML = `
+            <div class="title-wrapper">
+                <h5 class="h5">${skill.title}</h5>
+                <span class="skill-level">${skill.level}</span>
+            </div>
+        `;
+        skillsList.appendChild(listItem);
+    });
+}
+
 function displayServices(services) {
     const serviceList = document.getElementById("service-list");
-
     services.forEach(service => {
         const listItem = document.createElement("li");
         listItem.classList.add("service-item");
@@ -188,68 +229,6 @@ function displayServices(services) {
 
 document.addEventListener('DOMContentLoaded', async () => {
     try {
-        const services = await fetchData('services.json');
-        displayServices(services);
-    } catch (error) {
-        console.error('There was a problem with the fetch operation:', error);
-    }
-});
-
-async function fetchData(url) {
-    const response = await fetch(url);
-    if (!response.ok) {
-        throw new Error('Network response was not ok');
-    }
-    return response.json();
-}
-
-function displayEducation(data) {
-    const educationList = document.getElementById('education-list');
-
-    data.education.forEach(item => {
-        const listItem = document.createElement('li');
-        listItem.className = 'timeline-item';
-        listItem.innerHTML = `
-            <h4 class="h4 timeline-item-title">${item.degree} at ${item.institution}</h4>
-            <span>${item.duration}${item.percentage ? ', ' + item.percentage : ''}</span>
-        `;
-        educationList.appendChild(listItem);
-    });
-}
-
-function displayExperience(data) {
-    const experienceList = document.getElementById('experience-list');
-
-    data.experience.forEach(item => {
-        const listItem = document.createElement('li');
-        listItem.className = 'timeline-item';
-        listItem.innerHTML = `
-            <h4 class="h4 timeline-item-title">${item.position} at ${item.company}</h4>
-            <span>${item.duration}, ${item.location}</span>
-            <p class="timeline-text">Responsibilities: ${item.responsibilities.join(', ')}</p>
-        `;
-        experienceList.appendChild(listItem);
-    });
-}
-
-function displaySkills(data) {
-    const skillsList = document.getElementById('skills-list');
-
-    data.skills.forEach(skill => {
-        const listItem = document.createElement('li');
-        listItem.className = 'skills-item';
-        listItem.innerHTML = `
-            <div class="title-wrapper">
-                <h5 class="h5">${skill.title}</h5>
-                <span class="skill-level">${skill.level}</span>
-            </div>
-        `;
-        skillsList.appendChild(listItem);
-    });
-}
-
-document.addEventListener("DOMContentLoaded", async () => {
-    try {
         const educationData = await fetchData('education.json');
         displayEducation(educationData);
 
@@ -258,8 +237,10 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         const skillsData = await fetchData('skills.json');
         displaySkills(skillsData);
+
+        const servicesData = await fetchData('services.json');
+        displayServices(servicesData);
     } catch (error) {
         console.error('There was a problem with the fetch operation:', error);
     }
 });
-
