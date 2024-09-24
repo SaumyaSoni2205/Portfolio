@@ -157,38 +157,42 @@ for (let i = 0; i < navigationLinks.length; i++) {
 
   });
 }
+async function fetchData(url) {
+    const response = await fetch(url);
+    if (!response.ok) {
+        throw new Error('Network response was not ok');
+    }
+    return response.json();
+}
 
-document.addEventListener('DOMContentLoaded', () => {
-  fetch('services.json')
-      .then(response => {
-          if (!response.ok) {
-              throw new Error('Network response was not ok');
-          }
-          return response.json();
-      })
-      .then(services => {
-          const serviceList = document.getElementById("service-list");
+function displayServices(services) {
+    const serviceList = document.getElementById("service-list");
 
-          services.forEach(service => {
-              const listItem = document.createElement("li");
-              listItem.classList.add("service-item");
+    services.forEach(service => {
+        const listItem = document.createElement("li");
+        listItem.classList.add("service-item");
 
-              listItem.innerHTML = `
-                  <div class="service-icon-box">
-                      <img src="${service.icon}" alt="${service.title} icon" width="40">
-                  </div>
-                  <div class="service-content-box">
-                      <h4 class="h4 service-item-title">${service.title}</h4>
-                      <p class="service-item-text">${service.description}</p>
-                  </div>
-              `;
+        listItem.innerHTML = `
+            <div class="service-icon-box">
+                <img src="${service.icon}" alt="${service.title} icon" width="40">
+            </div>
+            <div class="service-content-box">
+                <h4 class="h4 service-item-title">${service.title}</h4>
+                <p class="service-item-text">${service.description}</p>
+            </div>
+        `;
 
-              serviceList.appendChild(listItem);
-          });
-      })
-      .catch(error => {
-          console.error('There was a problem with the fetch operation:', error);
-      });
+        serviceList.appendChild(listItem);
+    });
+}
+
+document.addEventListener('DOMContentLoaded', async () => {
+    try {
+        const services = await fetchData('services.json');
+        displayServices(services);
+    } catch (error) {
+        console.error('There was a problem with the fetch operation:', error);
+    }
 });
 
 async function fetchData(url) {
