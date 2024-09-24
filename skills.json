@@ -1,0 +1,37 @@
+{
+    "skills": [
+      {
+        "title": "MS Office",
+        "level": "Intermediate"
+      },
+      {
+        "title": "MS Excel",
+        "level": "Beginner"
+      },
+      {
+        "title": "Social Media Marketing",
+        "level": "Beginner"
+      },
+      {
+        "title": "Team Work",
+        "level": "Intermediate"
+      },
+      {
+        "title": "Leadership",
+        "level": "Advanced"
+      },
+      {
+        "title": "Problem Solving",
+        "level": "Intermediate"
+      },
+      {
+        "title": "Data Entry",
+        "level": "Beginner"
+      },
+      {
+        "title": "Critical Thinking",
+        "level": "Intermediate"
+      }
+    ]
+  }
+  

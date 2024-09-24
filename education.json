@@ -1,0 +1,28 @@
+{
+    "education": [
+      {
+        "institution": "IIMT College of Engineering",
+        "degree": "Master of Business Administration",
+        "duration": "2024 - Present"
+      },
+      {
+        "institution": "Islamia College of Commerce",
+        "degree": "Bachelor of Commerce",
+        "percentage": "78.8%",
+        "duration": "2021 - 2024"
+      },
+      {
+        "institution": "Blooming Buds Academy",
+        "degree": "Intermediate",
+        "percentage": "76.8%",
+        "duration": "2020 - 2021"
+      },
+      {
+        "institution": "Blooming Buds Academy",
+        "degree": "Higher Secondary",
+        "percentage": "79.8%",
+        "duration": "2018 - 2019"
+      }
+    ]
+  }
+  

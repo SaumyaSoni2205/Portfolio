@@ -1,0 +1,23 @@
+[
+    {
+      "icon": "./assets/images/project-management.png",
+      "title": "Business Administration",
+      "description": "Pursuing an MBA with a focus on developing analytical and managerial skills to drive organizational success."
+    },
+    {
+      "icon": "./assets/images/data-analysis.png",
+      "title": "Data Analysis",
+      "description": "Proficient in utilizing MS Excel and other tools for critical data analysis, helping to inform decision-making and optimize business processes."
+    },
+    {
+      "icon": "./assets/images/leadership.png",
+      "title": "Leadership & Teamwork",
+      "description": "Actively enhancing leadership and teamwork skills through participation in college projects and events, ensuring effective collaboration and problem-solving."
+    },
+    {
+      "icon": "./assets/images/extracurricular.png",
+      "title": "Extracurricular Engagement",
+      "description": "Participating in college sports and cultural events, demonstrating a balanced approach to personal development and academic performance."
+    }
+  ]
+  
