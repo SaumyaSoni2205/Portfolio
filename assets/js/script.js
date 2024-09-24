@@ -159,7 +159,7 @@ for (let i = 0; i < navigationLinks.length; i++) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  fetch('../services.json')
+  fetch('services.json')
       .then(response => {
           if (!response.ok) {
               throw new Error('Network response was not ok');
